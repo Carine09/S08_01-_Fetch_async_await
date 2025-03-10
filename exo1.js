@@ -16,6 +16,8 @@ async function fetchOffers() {
     const offers = await response.json();
     console.log(offers);
     // console.log(offers[0].titre);
+    
+    offerContainer.innerText = "";
 
     offers.forEach(offer => {
         let titleContainer = document.createElement("h2");
@@ -28,6 +30,7 @@ async function fetchOffers() {
     });
 }
 
+offerContainer.innerText = `Chargement des offres...`
 fetchOffers();
 
 // const apiUrl = "https://www.codepassport.dev/api/offers";
