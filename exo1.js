@@ -9,8 +9,7 @@ Par exemple, le HTML généré pour une offre, pourrait ressembler à ça :
 💡 Indice : tu peux utiliser la propriété innerHTML et les template strings pour générer le HTML à partir du JSON.
 */
 
-const title = document.querySelector("#titre");
-const des = document.querySelector("#description");
+const offerContainer = document.querySelector("#offerContainer");
 
 async function fetchOffers() {
     const response = await fetch("https://www.codepassport.dev/api/offers");
@@ -19,8 +18,13 @@ async function fetchOffers() {
     // console.log(offers[0].titre);
 
     offers.forEach(offer => {
-        title.innerText = offer.titre;
-        des.innerText = offer.description;
+        let titleContainer = document.createElement("h2");
+        titleContainer.innerText = offer.titre;
+        offerContainer.appendChild(titleContainer);
+
+        let desContainer = document.createElement("p");
+        desContainer.innerText = offer.description;
+        offerContainer.appendChild(desContainer)
     });
 }
 
