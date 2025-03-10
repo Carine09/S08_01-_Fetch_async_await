@@ -8,7 +8,7 @@ async function fetchCitations() {
     const response = await fetch("https://www.dummyjson.com/quotes");
     const citations = await response.json();
     console.log(citations);
-    // console.log(offers[0].titre);
+
     
     citationContainer.innerText = "";
 
